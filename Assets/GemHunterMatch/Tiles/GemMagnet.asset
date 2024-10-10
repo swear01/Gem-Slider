@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a11575aeb75f4b47aa5e777e84540c2, type: 3}
-  m_Name: BlueGem
+  m_Name: GemMagnet
   m_EditorClassIdentifier: 
-  PreviewEditorSprite: {fileID: 21300000, guid: 0e7a33b2f6906244381dfc5ec519bd28, type: 3}
-  PlacedGem: {fileID: 7927807542344970777, guid: 04a81442ef4438841a0074ba8568d5d9, type: 3}
+  PreviewEditorSprite: {fileID: 21300000, guid: 40c2e29983449734890ea7e67303078b, type: 3}
+  PlacedGem: {fileID: 7927807542344970777, guid: 3d45c7a5c1a18ce408b15ad7a814f987, type: 3}

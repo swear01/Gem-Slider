@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a11575aeb75f4b47aa5e777e84540c2, type: 3}
-  m_Name: YellowGem
+  m_Name: GemTriangle
   m_EditorClassIdentifier: 
-  PreviewEditorSprite: {fileID: 21300000, guid: ab0bbc4093276fc48935e33128b294ce, type: 3}
-  PlacedGem: {fileID: 7927807542344970777, guid: 8cc6bc4f5802b33419a96e85fb84e771, type: 3}
+  PreviewEditorSprite: {fileID: 21300000, guid: c191512e1d5a6e64a8dc73718f303895, type: 3}
+  PlacedGem: {fileID: 7927807542344970777, guid: 924c8da2c1342cd41a99abdae62388df, type: 3}
