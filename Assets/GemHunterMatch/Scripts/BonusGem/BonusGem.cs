@@ -42,13 +42,6 @@ namespace Match3
         public void BonusTriggerEffect()
         {
             var position = GameManager.Instance.Board.GetCellCenter(m_CurrentIndex); 
-            foreach (var effectPrefab in MatchEffectPrefabs)
-            {
-                //normally the game will instantiate the bonus vfx when it first get spawn, but if using a bonus item
-                //before that happen, this ensure the vfx will get instantiated first 
-                GameManager.Instance.PoolSystem.AddNewInstance(effectPrefab, 8);
-                GameManager.Instance.PoolSystem.PlayInstanceAt(effectPrefab, position);
-            }
         }
     }
 

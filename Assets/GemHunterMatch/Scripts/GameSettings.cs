@@ -37,10 +37,6 @@ namespace Match3
         
         public GameObject HintPrefab;
 
-        public VisualEffect CoinVFX;
-
-        public VisualEffect WinEffect;
-        public VisualEffect LoseEffect;
     }
 
     /// <summary>

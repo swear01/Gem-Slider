@@ -34,9 +34,6 @@ namespace Match3
 
         public Gem[] ExistingGems;
 
-        public VisualEffect GemHoldPrefab;
-        public VisualEffect HoldTrailPrefab;
-
         public BoundsInt Bounds => m_BoundsInt;
         public Grid Grid => m_Grid;
 
@@ -83,9 +80,6 @@ namespace Match3
 
         private BonusItem m_ActivatedBonus;
 
-        private VisualEffect m_GemHoldVFXInstance;
-        private VisualEffect m_HoldTrailInstance;
-
         private AudioSource m_FallingSoundSource;
 
         private enum SwapStage
@@ -125,7 +119,7 @@ namespace Match3
         {
             //order of deletion when quitting the game can make the manager be destroyed first so we make sure it's not
             //shutting down, otherwise in editor, calling GameManager.Instance would create a new game manager.
-            if(!GameManager.IsShuttingDown()) GameManager.Instance.PoolSystem.Clean();
+
         }
 
         void GetReference()
@@ -187,17 +181,7 @@ namespace Match3
         
             m_BoardWasInit = true;
 
-            if (GemHoldPrefab != null)
-            {
-                m_GemHoldVFXInstance = Instantiate(GemHoldPrefab);
-                m_GemHoldVFXInstance.gameObject.SetActive(false);
-            }
 
-            if (HoldTrailPrefab != null)
-            {
-                m_HoldTrailInstance = Instantiate(HoldTrailPrefab);
-                m_HoldTrailInstance.gameObject.SetActive(false);
-            }
 
             ToggleInput(false);
             //we wait couple of frames before fading in, as UI was just init yet so animation would not play
@@ -471,8 +455,7 @@ namespace Match3
         {
             if(!m_BoardWasInit)
                 return;
-            
-            GameManager.Instance.PoolSystem.Update();
+
 
             for (int i = 0; i < m_BoardActions.Count; ++i)
             {
@@ -834,8 +817,6 @@ namespace Match3
                         if (match.DeletedCount >= 4 && !match.ForcedDeletion)
                         {
                             GameManager.Instance.ChangeCoins(1);
-                            GameManager.Instance.PoolSystem.PlayInstanceAt(GameManager.Instance.Settings.VisualSettings.CoinVFX,
-                                gem.transform.position);
                         }
                     
                         if (match.SpawnedBonus != null && match.OriginPoint == gemIdx)
@@ -851,11 +832,6 @@ namespace Match3
                         if (gem.CurrentState != Gem.State.Disappearing)
                         {
                             LevelData.Instance.Matched(gem);
-                            
-                            foreach (var matchEffectPrefab in gem.MatchEffectPrefabs)
-                            {
-                                GameManager.Instance.PoolSystem.PlayInstanceAt(matchEffectPrefab, m_Grid.GetCellCenterWorld(gem.CurrentIndex));
-                            }
 
                             gem.gameObject.SetActive(false);
 
@@ -865,11 +841,7 @@ namespace Match3
                     else if(gem.CurrentState != Gem.State.Disappearing)
                     {
                         LevelData.Instance.Matched(gem);
-                        
-                        foreach (var matchEffectPrefab in gem.MatchEffectPrefabs)
-                        {
-                            GameManager.Instance.PoolSystem.PlayInstanceAt(matchEffectPrefab, m_Grid.GetCellCenterWorld(gem.CurrentIndex));
-                        }
+                   
 
                         gem.gameObject.SetActive(false);
 
@@ -1043,13 +1015,6 @@ namespace Match3
             if (gemPrefab == null)
                 gemPrefab = ExistingGems[Random.Range(0, ExistingGems.Length)];
 
-            if (gemPrefab.MatchEffectPrefabs.Length != 0)
-            {
-                foreach (var matchEffectPrefab in gemPrefab.MatchEffectPrefabs)
-                {
-                    GameManager.Instance.PoolSystem.AddNewInstance(matchEffectPrefab, 16);
-                }
-            }
 
             //New Gem may be called after the board was init (as startup doesn't seem to be reliably called BEFORE init)
             if (CellContent[cell].ContainingGem != null)
@@ -1320,10 +1285,6 @@ namespace Match3
             var worldPos = mainCam.ScreenToWorldPoint(clickPos);
             worldPos.z = 0;
             
-            if (m_HoldTrailInstance.gameObject.activeSelf)
-            {
-                m_HoldTrailInstance.transform.position = worldPos;
-            }
         
             if (pressedThisFrame)
             {
@@ -1367,24 +1328,12 @@ namespace Match3
 
                 if (CellContent.ContainsKey(startCell))
                 {
-                    if (m_GemHoldVFXInstance != null)
-                    {
-                        m_GemHoldVFXInstance.transform.position = m_Grid.GetCellCenterWorld(startCell);
-                        m_GemHoldVFXInstance.gameObject.SetActive(true);
-                    }
 
-                    if (m_HoldTrailInstance)
-                    {
-                        m_HoldTrailInstance.transform.position = worldPos;
-                        m_HoldTrailInstance.gameObject.SetActive(true);
-                    }
                 }
             }
             else if (releasedThisFrame)
             {
                 m_IsHoldingTouch = false;
-                if(m_GemHoldVFXInstance != null) m_GemHoldVFXInstance.gameObject.SetActive(false);
-                if(m_HoldTrailInstance != null) m_HoldTrailInstance.gameObject.SetActive(false);
                 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 if (UIHandler.Instance.DebugMenuOpen)

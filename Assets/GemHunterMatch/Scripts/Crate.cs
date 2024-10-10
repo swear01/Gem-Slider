@@ -11,7 +11,6 @@ namespace Match3
         public int Health = 3;
 
         public AudioClip DamagedClip;
-        public VisualEffect DamageEffect;
     
         protected SpriteRenderer m_Renderer;
 
@@ -26,8 +25,6 @@ namespace Match3
         {
             base.Init(startIdx);
             
-            if(DamageEffect != null)
-                GameManager.Instance.PoolSystem.AddNewInstance(DamageEffect, 6);
 
             if (CanBeDestroyedWithAdjacentMatch)
             {
@@ -42,9 +39,6 @@ namespace Match3
         public override bool Damage(int damage)
         {
             GameManager.Instance.PlaySFX(DamagedClip);
-            
-            if(DamageEffect != null)
-                GameManager.Instance.PoolSystem.PlayInstanceAt(DamageEffect, transform.position);
             
             var ret = base.Damage(damage);
             UpdateState();
