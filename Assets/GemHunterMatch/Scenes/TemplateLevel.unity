@@ -259,71 +259,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &527522672
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 898045807874856063, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_Name
-      value: LightRotator
-      objectReference: {fileID: 0}
-    - target: {fileID: 898045807874856063, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9520003
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.22067621
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.071906894
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.1995669
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -26.671
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.133
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066020902649084406, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -22.936
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a14b0135ba183b74cbf13f436cdd5c0e, type: 3}
 --- !u!1 &536215102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,7 +2512,7 @@ GameObject:
   - component: {fileID: 1390592861}
   - component: {fileID: 1390592862}
   m_Layer: 0
-  m_Name: glooming
+  m_Name: Shimmering_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3479,7 +3414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283241299560061040, guid: 1ae756c6bb58b004e9a9379191b184a0, type: 3}
       propertyPath: m_Intensity
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8283241299560061040, guid: 1ae756c6bb58b004e9a9379191b184a0, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
@@ -3490,7 +3425,9 @@ PrefabInstance:
       value: 867880795
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1120722108909629740, guid: 1ae756c6bb58b004e9a9379191b184a0, type: 3}
+    - {fileID: 3202286258700411961, guid: 1ae756c6bb58b004e9a9379191b184a0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 714387067616636856, guid: 1ae756c6bb58b004e9a9379191b184a0, type: 3}
       insertIndex: -1
@@ -3510,5 +3447,4 @@ SceneRoots:
   - {fileID: 2055290517}
   - {fileID: 1954289510}
   - {fileID: 2232633986011668112}
-  - {fileID: 527522672}
   - {fileID: 1409951469}
