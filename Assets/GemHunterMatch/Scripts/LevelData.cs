@@ -40,7 +40,7 @@ namespace Match3
         public GoalChangeDelegate OnGoalChanged;
         public MoveNotificationDelegate OnMoveHappened;
 
-        public int RemainingMove { get; private set; }
+        public int Score { get; private set; }
         public int GoalLeft { get; private set; }
 
         private int m_StartingWidth;
@@ -49,7 +49,7 @@ namespace Match3
         private void Awake()
         {
             Instance = this;
-            RemainingMove = MaxMove;
+            Score = 0;
             GoalLeft = Goals.Length;
             GameManager.Instance.StartLevel();
         }
@@ -115,21 +115,21 @@ namespace Match3
 
         public void Moved()
         {
-            var prev = RemainingMove;
-        
-        
-            RemainingMove = Mathf.Max(0, RemainingMove - 1);
-            OnMoveHappened?.Invoke(RemainingMove);
+            var prev = Score;
 
-            if (prev > LowMoveTrigger && RemainingMove <= LowMoveTrigger)
-            {
-                UIHandler.Instance.TriggerCharacterAnimation(UIHandler.CharacterAnimation.LowMove);
-            }
 
-            if (RemainingMove <= 0)
-            {
-                OnNoMoveLeft();
-            }
+            Score += 200;
+            OnMoveHappened?.Invoke(Score);
+
+            //if (prev > LowMoveTrigger && RemainingMove <= LowMoveTrigger)
+            //{
+            //    UIHandler.Instance.TriggerCharacterAnimation(UIHandler.CharacterAnimation.LowMove);
+            //}
+
+            //if (RemainingMove <= 0)
+            //{
+            //    OnNoMoveLeft();
+            //}
         }
     }
 }

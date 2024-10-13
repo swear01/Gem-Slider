@@ -165,7 +165,7 @@
     align-self: center;
 }
 
-#MoveCounter {
+#ScoreMonitor {
     color: rgb(255, 255, 255);
     font-size: 136px;
     -unity-font-style: bold;

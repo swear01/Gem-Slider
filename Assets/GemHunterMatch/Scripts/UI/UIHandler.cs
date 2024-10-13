@@ -63,7 +63,7 @@ namespace Match3
         private Action m_FadeCallback;
 
         private VisualElement m_GemGoalContent;
-        private Label m_MoveCounter;
+        private Label m_ScoreMonitor;
         private Label m_LevelName;
 
         private VisualElement m_BottomBarRoot;
@@ -144,7 +144,7 @@ namespace Match3
             m_LevelName = m_Document.rootVisualElement.Q<Label>("LevelName");
             
             m_GemGoalContent = m_Document.rootVisualElement.Q<VisualElement>("GoalContainer");
-            m_MoveCounter = m_Document.rootVisualElement.Q<Label>("MoveCounter");
+            m_ScoreMonitor = m_Document.rootVisualElement.Q<Label>("ScoreMonitor");
             
             m_EndTitleContent = m_Document.rootVisualElement.Q<VisualElement>("EndTitleContent");
             m_WinTitle = m_EndTitleContent.Q<VisualElement>("WinTitle");
@@ -184,6 +184,11 @@ namespace Match3
             openSettingButton.clicked += () =>
             {
                 ToggleSettingMenu(true);
+            };
+            var finishLevelButton = m_BottomBarRoot.Q<Button>("ButtonEnd");
+            finishLevelButton.clicked += () =>
+            {
+                ShowWin();
             };
             
             // Setting Menu
@@ -366,10 +371,10 @@ namespace Match3
                 }
             };
 
-            m_MoveCounter.text = LevelData.Instance.RemainingMove.ToString();
-            LevelData.Instance.OnMoveHappened += remaining =>
+            m_ScoreMonitor.text = LevelData.Instance.Score.ToString();
+            LevelData.Instance.OnMoveHappened += Score =>
             {
-                m_MoveCounter.text = remaining.ToString();
+                m_ScoreMonitor.text = Score.ToString();
             };
 
            
