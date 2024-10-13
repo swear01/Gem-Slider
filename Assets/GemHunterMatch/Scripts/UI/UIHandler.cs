@@ -28,16 +28,16 @@ namespace Match3
             public AudioClip EndClip;
         }
 
-        class ShopEntry
-        {
-            public Button BuyButton;
-            public ShopSetting.ShopItem LinkedItem;
+        //class ShopEntry
+        //{
+        //    public Button BuyButton;
+        //    public ShopSetting.ShopItem LinkedItem;
 
-            public void UpdateButtonState()
-            {
-                BuyButton.SetEnabled(GameManager.Instance.Coins >= LinkedItem.Price);
-            }
-        }
+        //    public void UpdateButtonState()
+        //    {
+        //        BuyButton.SetEnabled(GameManager.Instance.Coins >= LinkedItem.Price);
+        //    }
+        //}
 
         public enum CharacterAnimation
         {
@@ -54,7 +54,7 @@ namespace Match3
 
         public Sprite CoinSprite;
 
-        public VisualTreeAsset ShopItemEntryTemplate;
+        //public VisualTreeAsset ShopItemEntryTemplate;
         public VisualTreeAsset BonusItemTemplate;
     
         private UIDocument m_Document;
@@ -103,10 +103,10 @@ namespace Match3
         private Label m_StarLabel;
     
         // Shop
-        private VisualElement m_ShopRoot;
-        private ScrollView m_ShopScrollView;
+        //private VisualElement m_ShopRoot;
+        //private ScrollView m_ShopScrollView;
 
-        private List<ShopEntry> m_ShopEntries = new();
+        //private List<ShopEntry> m_ShopEntries = new();
     
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
 
@@ -179,8 +179,8 @@ namespace Match3
             m_LiveLabel = m_Document.rootVisualElement.Q<Label>("LiveLabel");
             m_StarLabel = m_Document.rootVisualElement.Q<Label>("StarLabel");
 
-            m_BottomBarRoot = m_Document.rootVisualElement.Q<VisualElement>("BoosterZone");
-            var openSettingButton = m_BottomBarRoot.parent.Q<Button>("ButtonMenu");
+            m_BottomBarRoot = m_Document.rootVisualElement.Q<VisualElement>("BottomBar");
+            var openSettingButton = m_BottomBarRoot.Q<Button>("ButtonMenu");
             openSettingButton.clicked += () =>
             {
                 ToggleSettingMenu(true);
@@ -236,49 +236,49 @@ namespace Match3
 
             // Shop
         
-            var shopButton = m_Document.rootVisualElement.Q<Button>("ShopButton");
-            shopButton.clicked += () =>
-            {
-                ShowShop(true);
-            };
+            //var shopButton = m_Document.rootVisualElement.Q<Button>("ShopButton");
+            //shopButton.clicked += () =>
+            //{
+            //    ShowShop(true);
+            //};
 
-            m_ShopRoot = m_Document.rootVisualElement.Q<VisualElement>("Shop");
-            m_ShopScrollView = m_Document.rootVisualElement.Q<ScrollView>("ShopContentScroll");
+            //m_ShopRoot = m_Document.rootVisualElement.Q<VisualElement>("Shop");
+            //m_ShopScrollView = m_Document.rootVisualElement.Q<ScrollView>("ShopContentScroll");
 
-            foreach (var shopItem in GameManager.Instance.Settings.ShopSettings.Items)
-            {
-                var newElem = ShopItemEntryTemplate.Instantiate();
-                var itemIcon = newElem.Q<VisualElement>("ItemIcon");
-                var itemName = newElem.Q<Label>("ItemName");
-                var itemPrice = newElem.Q<Label>("ItemPrice");
+            //foreach (var shopItem in GameManager.Instance.Settings.ShopSettings.Items)
+            //{
+            //    var newElem = ShopItemEntryTemplate.Instantiate();
+            //    var itemIcon = newElem.Q<VisualElement>("ItemIcon");
+            //    var itemName = newElem.Q<Label>("ItemName");
+            //    var itemPrice = newElem.Q<Label>("ItemPrice");
 
-                itemIcon.style.backgroundImage = new StyleBackground(shopItem.ItemSprite);
-                itemName.text = shopItem.ItemName;
-                itemPrice.text = shopItem.Price.ToString();
+            //    itemIcon.style.backgroundImage = new StyleBackground(shopItem.ItemSprite);
+            //    itemName.text = shopItem.ItemName;
+            //    itemPrice.text = shopItem.Price.ToString();
          
-                var newShopEntry = new ShopEntry();
+            //    var newShopEntry = new ShopEntry();
             
-                newShopEntry.BuyButton = newElem.Q<Button>("BuyButton");
-                newShopEntry.LinkedItem = shopItem;
-                newShopEntry.UpdateButtonState();
-                newShopEntry.BuyButton.clicked += () =>
-                {
-                    newShopEntry.LinkedItem.Buy();
-                    GameManager.Instance.ChangeCoins(-newShopEntry.LinkedItem.Price);
+            //    newShopEntry.BuyButton = newElem.Q<Button>("BuyButton");
+            //    newShopEntry.LinkedItem = shopItem;
+            //    newShopEntry.UpdateButtonState();
+            //    newShopEntry.BuyButton.clicked += () =>
+            //    {
+            //        newShopEntry.LinkedItem.Buy();
+            //        GameManager.Instance.ChangeCoins(-newShopEntry.LinkedItem.Price);
                 
-                    UpdateTopBarData();
-                    UpdateShopEntry();
-                };
+            //        UpdateTopBarData();
+            //        UpdateShopEntry();
+            //    };
               
-                m_ShopEntries.Add(newShopEntry);
-                m_ShopScrollView.Add(newElem);
-            }
+            //    m_ShopEntries.Add(newShopEntry);
+            //    m_ShopScrollView.Add(newElem);
+            //}
 
-            var exitShop = m_ShopRoot.Q<Button>("ShopExitButton");
-            exitShop.clicked += () =>
-            {
-                ShowShop(false);
-            };
+            //var exitShop = m_ShopRoot.Q<Button>("ShopExitButton");
+            //exitShop.clicked += () =>
+            //{
+            //    ShowShop(false);
+            //};
             
             var curve = GameManager.Instance.Settings.VisualSettings.MatchFlyCurve;
             m_MatchEffectEndTime = curve.keys[curve.keys.Length-1].time;
@@ -291,7 +291,7 @@ namespace Match3
                 m_FadeCallback = null;
             });
             
-            CreateBottomBar();
+            //CreateBottomBar();
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             m_DebugMenuRoot = new VisualElement();
@@ -381,7 +381,7 @@ namespace Match3
 
             mainCamera = Camera.main;
 
-            m_ShopRoot.style.display = DisplayStyle.None;
+            //m_ShopRoot.style.display = DisplayStyle.None;
         }
 
         public void Display(bool displayed)
@@ -551,10 +551,10 @@ namespace Match3
             });
         }
 
-        public void ShowShop(bool opened)
-        {
-            m_ShopRoot.style.display = opened ? DisplayStyle.Flex : DisplayStyle.None;
-        }
+        //public void ShowShop(bool opened)
+        //{
+        //    m_ShopRoot.style.display = opened ? DisplayStyle.Flex : DisplayStyle.None;
+        //}
 
         private void Update()
         {
@@ -618,69 +618,69 @@ namespace Match3
             m_StarLabel.text = GameManager.Instance.Stars.ToString();
         }
 
-        public void CreateBottomBar()
-        {
-            int currentBonus = 0;
-            foreach (var child in m_BottomBarRoot.Children())
-            {
-                var icon = child.Q<VisualElement>("ImageBooster");
-                var bonusButton = child.Q<Button>("ButtonBooster");
+        //public void CreateBottomBar()
+        //{
+        //    int currentBonus = 0;
+        //    foreach (var child in m_BottomBarRoot.Children())
+        //    {
+        //        var icon = child.Q<VisualElement>("ImageBooster");
+        //        var bonusButton = child.Q<Button>("ButtonBooster");
                 
-                if (currentBonus < GameManager.Instance.BonusItems.Count)
-                {
-                    var item = GameManager.Instance.BonusItems[currentBonus];
+        //        if (currentBonus < GameManager.Instance.BonusItems.Count)
+        //        {
+        //            var item = GameManager.Instance.BonusItems[currentBonus];
                     
-                    icon.style.display = DisplayStyle.Flex;
-                    icon.style.backgroundImage = Background.FromSprite(item.Item.DisplaySprite);
+        //            icon.style.display = DisplayStyle.Flex;
+        //            icon.style.backgroundImage = Background.FromSprite(item.Item.DisplaySprite);
                     
-                    bonusButton.clicked += () =>
-                    {
-                        var currentSelected = m_SelectedBonusItem;
-                        DeselectBonusItem();
+        //            bonusButton.clicked += () =>
+        //            {
+        //                var currentSelected = m_SelectedBonusItem;
+        //                DeselectBonusItem();
 
-                        //clicking back on an already selected item just deselect it
-                        if (currentSelected == child)
-                        {
-                            GameManager.Instance.ActivateBonusItem(null);
-                            return;
-                        }
+        //                //clicking back on an already selected item just deselect it
+        //                if (currentSelected == child)
+        //                {
+        //                    GameManager.Instance.ActivateBonusItem(null);
+        //                    return;
+        //                }
                         
-                        m_SelectedBonusItem = child;
-                        m_SelectedBonusItem.AddToClassList("selected");
+        //                m_SelectedBonusItem = child;
+        //                m_SelectedBonusItem.AddToClassList("selected");
 
-                        GameManager.Instance.ActivateBonusItem(item.Item);
-                    };
-                }
-                else
-                {
-                    icon.style.display = DisplayStyle.None;
-                }
+        //                GameManager.Instance.ActivateBonusItem(item.Item);
+        //            };
+        //        }
+        //        else
+        //        {
+        //            icon.style.display = DisplayStyle.None;
+        //        }
 
-                currentBonus++;
-            }
+        //        currentBonus++;
+        //    }
             
-            UpdateBottomBar();
-        }
+        //    UpdateBottomBar();
+        //}
 
-        public void UpdateBottomBar()
-        {
-            int currentBonus = 0;
-            foreach (var child in m_BottomBarRoot.Children())
-            {
-                var count = child.Q<Label>("LabelBoosterNumber");
-                var bonusButton = child.Q<Button>("ButtonBooster");
+        //public void UpdateBottomBar()
+        //{
+        //    int currentBonus = 0;
+        //    foreach (var child in m_BottomBarRoot.Children())
+        //    {
+        //        var count = child.Q<Label>("LabelBoosterNumber");
+        //        var bonusButton = child.Q<Button>("ButtonBooster");
 
-                if (currentBonus < GameManager.Instance.BonusItems.Count)
-                {
-                    var item = GameManager.Instance.BonusItems[currentBonus];
-                    count.text = item.Amount.ToString();
+        //        if (currentBonus < GameManager.Instance.BonusItems.Count)
+        //        {
+        //            var item = GameManager.Instance.BonusItems[currentBonus];
+        //            count.text = item.Amount.ToString();
                     
-                    bonusButton.SetEnabled(item.Amount != 0);
-                }
+        //            bonusButton.SetEnabled(item.Amount != 0);
+        //        }
 
-                currentBonus += 1;
-            }
-        }
+        //        currentBonus += 1;
+        //    }
+        //}
 
         public void DeselectBonusItem()
         {
@@ -691,13 +691,13 @@ namespace Match3
             m_SelectedBonusItem = null;
         }
 
-        public void UpdateShopEntry()
-        {
-            foreach (var shopEntry in m_ShopEntries)
-            {
-                shopEntry.UpdateButtonState();
-            }
-        }
+        //public void UpdateShopEntry()
+        //{
+        //    foreach (var shopEntry in m_ShopEntries)
+        //    {
+        //        shopEntry.UpdateButtonState();
+        //    }
+        //}
 
         public void TriggerCharacterAnimation(CharacterAnimation animation)
         {

@@ -176,11 +176,11 @@ namespace Match3
         {
             //setup the camera so it look at the center of the play area, and change its ortho setting so it perfectly frame
             var bounds = Board.Bounds;
-            Vector3 center = Board.Grid.CellToLocalInterpolated(bounds.center) + new Vector3(0.5f, 0.5f, 0.0f);
+            Vector3 center = Board.Grid.CellToLocalInterpolated(bounds.center) + new Vector3(0.5f, 0.0f, 0.0f);
             center = Board.transform.TransformPoint(center);
             
             //we offset of 1 up as the top bar is thicker, so this center it better between the top & bottom bar
-            Camera.main.transform.position = center + Vector3.back * 10.0f + Vector3.up * 0.75f;
+            Camera.main.transform.position = center + Vector3.back * 10.0f + Vector3.up * 0.4f;
 
             float halfSize = 0.0f;
             
@@ -291,7 +291,7 @@ namespace Match3
                 });
             }
             
-            UIHandler.Instance.UpdateBottomBar();
+            //UIHandler.Instance.UpdateBottomBar();
         }
 
         public void ActivateBonusItem(BonusItem item)
@@ -310,7 +310,7 @@ namespace Match3
             existingItem.Amount -= 1;
             
             m_BonusModePrefab?.SetActive(false);
-            UIHandler.Instance.UpdateBottomBar();
+            //UIHandler.Instance.UpdateBottomBar();
             UIHandler.Instance.DeselectBonusItem();
         }
 

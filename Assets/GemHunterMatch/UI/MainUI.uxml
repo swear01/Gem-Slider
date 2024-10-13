@@ -1,15 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="GoalGemTemplate" src="project://database/Assets/GemHunterMatch/UI/GoalGemTemplate.uxml?fileID=9197481963319205126&amp;guid=46e256bb648e0e640a5d0e7575b27412&amp;type=3#GoalGemTemplate" />
-    <ui:Template name="ButtonBooster" src="project://database/Assets/GemHunterMatch/UI/ButtonBooster.uxml?fileID=9197481963319205126&amp;guid=483e68b0bf3854fa9a2ad52f310c7ade&amp;type=3#ButtonBooster" />
-    <ui:Template name="Shop" src="project://database/Assets/GemHunterMatch/UI/Shop.uxml?fileID=9197481963319205126&amp;guid=8b3d455b1bb41974582c637d9bc8d2cc&amp;type=3#Shop" />
     <Style src="project://database/Assets/GemHunterMatch/UI/MainUI.uss?fileID=7433441132597879392&amp;guid=1b2947054596e714da0a2b077220e36f&amp;type=3#MainUI" />
     <ui:VisualElement name="FullContent" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-        <ui:VisualElement name="TopBar" style="align-items: stretch;">
-            <ui:VisualElement name="LeftTopSection" class="topSection" style="align-items: flex-end; height: 494px;">
-                <ui:VisualElement name="TopSectionBackground" />
-                <ui:VisualElement name="GemContent" class="top-panel" style="opacity: 1; flex-wrap: wrap; flex-direction: column; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
-                    <ui:Label tabindex="-1" text="Level 1" display-tooltip-when-elided="true" name="LevelName" class="topBarTitle" />
-                    <ui:VisualElement name="GoalContainer" style="align-items: center; justify-content: center; align-self: center; flex-wrap: wrap; flex-direction: column; flex-grow: 1;">
+        <ui:VisualElement name="TopBar" style="align-items: stretch; top: auto; height: 10%; align-self: flex-end; max-height: none; background-image: url(&quot;project://database/Assets/GemHunterMatch/Images/UI/Sprite_UI_TopBar_BG.png?fileID=2800000&amp;guid=a813ffe38437ee14a94f35b5ce548247&amp;type=3#Sprite_UI_TopBar_BG&quot;);">
+            <ui:VisualElement name="LeftTopSection" class="topSection" style="align-items: flex-end; height: auto;">
+                <ui:Label tabindex="-1" text="Level 1" display-tooltip-when-elided="false" name="LevelName" style="flex-direction: row; top: auto; height: auto; width: auto; position: relative; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; font-size: 200%; -unity-text-align: upper-center; -unity-font-style: bold; align-items: flex-start; align-self: flex-start;" />
+                <ui:VisualElement name="GemContent" class="top-panel" style="opacity: 0; flex-wrap: wrap; flex-direction: row; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; height: auto; width: auto; max-width: none; max-height: none; background-image: none;">
+                    <ui:VisualElement name="GoalContainer" style="align-items: center; justify-content: center; align-self: auto; flex-wrap: wrap; flex-direction: column; flex-grow: 1; height: 100%; width: 100%; flex-basis: 100%;">
                         <ui:Instance template="GoalGemTemplate" name="GoalGemTemplate" />
                         <ui:Instance template="GoalGemTemplate" name="GoalGemTemplate" />
                         <ui:Instance template="GoalGemTemplate" name="GoalGemTemplate" />
@@ -17,30 +14,19 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="MiddleTopSection" class="topSection">
-                <ui:VisualElement name="TopSectionBackground" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GemHunterMatch/Images/UI/Sprite_UI_TopBar_BG_round.png?fileID=2800000&amp;guid=52f2eb4b70cc1944e87ac844d11f7dce&amp;type=3#Sprite_UI_TopBar_BG_round&quot;);" />
-                <ui:VisualElement name="AvatarFrame" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="MiddleTopSection" class="topSection" style="height: auto; width: auto; background-image: none;">
+                <ui:VisualElement name="AvatarFrame" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: auto; height: auto; max-height: none; min-height: auto; min-width: auto; max-width: none;">
                     <ui:Image name="RenderTarget" style="scale: 1.6 1.6; margin-bottom: 62px;" />
-                    <ui:VisualElement name="AvatarFrameOverlay" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%;" />
+                    <ui:VisualElement name="AvatarFrameOverlay" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: auto; height: auto;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="RIghtTopSection" class="topSection" style="justify-content: flex-start; height: 494px;">
-                <ui:VisualElement name="TopSectionBackground" style="flex-grow: 1;" />
-                <ui:VisualElement name="RemaningMovesPanel" class="top-panel">
-                    <ui:Label tabindex="-1" text="99" display-tooltip-when-elided="true" name="MoveCounter" />
-                    <ui:Label tabindex="-1" text="Moves Left" display-tooltip-when-elided="true" name="MoveTitleLabel" class="topBarTitle" />
-                </ui:VisualElement>
+            <ui:VisualElement name="RIghtTopSection" class="topSection" style="justify-content: flex-start; height: auto;">
+                <ui:Label tabindex="-1" text="99" display-tooltip-when-elided="true" name="MoveCounter" />
+                <ui:Label tabindex="-1" text="Moves Left" display-tooltip-when-elided="true" name="MoveTitleLabel" class="topBarTitle" style="font-size: 100%;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="BottomBar">
-            <ui:VisualElement name="BottomBarBackground" style="position: absolute; left: 0; top: 0; width: 100%; height: 150%; background-image: url(&quot;project://database/Assets/GemHunterMatch/Images/UI/Sprite_UI_BottomBar_BG.png?fileID=2800000&amp;guid=59e42bc163d2a4d10aab5d7236332064&amp;type=3#Sprite_UI_BottomBar_BG&quot;); -unity-background-scale-mode: stretch-to-fill;" />
-            <ui:VisualElement name="BoosterZone" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: center;">
-                <ui:Instance template="ButtonBooster" name="ButtonBooster" />
-                <ui:Instance template="ButtonBooster" name="ButtonBooster" />
-                <ui:Instance template="ButtonBooster" name="ButtonBooster" />
-                <ui:Instance template="ButtonBooster" name="ButtonBooster" />
-            </ui:VisualElement>
-            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonMenu" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/GemHunterMatch/Images/UI/Sprite_UI_setupicon.png?fileID=2800000&amp;guid=50ffaf47016294dc0906d09a1f8398d8&amp;type=3#Sprite_UI_setupicon&quot;); -unity-background-scale-mode: scale-to-fit; width: 80px; height: 80px; align-self: flex-start; margin-top: 34px; position: absolute; right: 17px; background-color: rgba(188, 188, 188, 0); margin-right: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+        <ui:VisualElement name="BottomBar" style="bottom: -20px; height: 10%; width: 100%; align-self: center; position: absolute; background-image: url(&quot;project://database/Assets/GemHunterMatch/Images/UI/Sprite_UI_BottomBar_BG.png?fileID=2800000&amp;guid=59e42bc163d2a4d10aab5d7236332064&amp;type=3#Sprite_UI_BottomBar_BG&quot;); align-items: center; justify-content: center;">
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonMenu" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/GemHunterMatch/Images/UI/Sprite_UI_setupicon.png?fileID=2800000&amp;guid=50ffaf47016294dc0906d09a1f8398d8&amp;type=3#Sprite_UI_setupicon&quot;); -unity-background-scale-mode: stretch-to-fill; width: 100%; height: 100%; align-self: stretch; margin-top: 34px; position: relative; background-color: rgba(188, 188, 188, 0); margin-right: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; max-width: 200px; max-height: 200px; justify-content: flex-start; align-items: flex-end;" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="Settings" class="fullscreen-dark">
@@ -100,6 +86,5 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:Instance template="Shop" name="Shop" style="position: absolute; display: flex;" />
     <ui:VisualElement name="Cover" picking-mode="Ignore" style="opacity: 0; display: flex;" />
 </ui:UXML>

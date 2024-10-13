@@ -10,7 +10,7 @@ namespace Match3
         public override void Buy()
         {
             GameManager.Instance.AddBonusItem(BonusItem);
-            UIHandler.Instance.UpdateBottomBar();
+            //UIHandler.Instance.UpdateBottomBar();
         }
     }
 }

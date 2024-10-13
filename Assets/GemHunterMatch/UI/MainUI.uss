@@ -72,8 +72,8 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    position: absolute;
-    top: -61px;
+    position: relative;
+    top: auto;
     align-self: center;
     color: rgb(255, 255, 255);
     font-size: 41px;

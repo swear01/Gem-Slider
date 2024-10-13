@@ -228,7 +228,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2718,16 +2718,10 @@ MonoBehaviour:
   LowMoveTrigger: 0
   Goals:
   - Gem: {fileID: 7927807542344970777, guid: 04a81442ef4438841a0074ba8568d5d9, type: 3}
-    Count: 8
-  - Gem: {fileID: 3930743957587144661, guid: f3e47e37930ff8f48b693da87b4025c7, type: 3}
-    Count: 8
-  - Gem: {fileID: 7927807542344970777, guid: bb60bc505e820734584f3d8bd0a16f53, type: 3}
-    Count: 8
-  - Gem: {fileID: 7927807542344970777, guid: 3d45c7a5c1a18ce408b15ad7a814f987, type: 3}
-    Count: 8
-  BorderMargin: 0.2
+    Count: 9999
+  BorderMargin: 0.3
   Background: {fileID: 0}
-  Music: {fileID: 8300000, guid: 800028ab827bd554284b052dc022f8bb, type: 3}
+  Music: {fileID: 8300000, guid: aa494cac6200b2145874e3b25dc323a8, type: 3}
 --- !u!1 &2086744281
 GameObject:
   m_ObjectHideFlags: 0
