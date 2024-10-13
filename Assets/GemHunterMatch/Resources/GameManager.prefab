@@ -98,7 +98,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   Settings:
-    InactivityBeforeHint: 8
+    InactivityBeforeHint: 9999
     VisualSettings:
       FallSpeed: 10
       FallAccelerationCurve:
@@ -322,24 +322,10 @@ MonoBehaviour:
         m_RotationOrder: 4
       BonusModePrefab: {fileID: 0}
       HintPrefab: {fileID: 225255149699016874, guid: 761d00c63087d1f4b806eeca34a1625e, type: 3}
-      CoinVFX: {fileID: 823917878632607669, guid: 202ea16d4263b8746948d26a69af75b9, type: 3}
-      WinEffect: {fileID: 5521151422817848708, guid: 2571ff47b782206499bc35b1ce8a17ae, type: 3}
-      LoseEffect: {fileID: 4472779639423090704, guid: d22cf45439fda9d40b3e13e2404543da, type: 3}
     BonusSettings:
-      Bonuses:
-      - {fileID: 7805701772922581740, guid: 0060243b43e180d4691da3a5d51dfca2, type: 3}
-      - {fileID: 7805701772922581740, guid: d3d488c116784e14f8d9926759659256, type: 3}
-      - {fileID: 2763895232013849139, guid: 30ab97e6fbed5c148b887ea91e6b0216, type: 3}
-      - {fileID: 135738431725045245, guid: 62690df8ee12255499459d65a63d29be, type: 3}
-      - {fileID: 583803581683181440, guid: 3c5c8f363a8e0264da69abbe71c4cf40, type: 3}
+      Bonuses: []
     ShopSettings:
-      Items:
-      - {fileID: 11400000, guid: 5ab1a215d2a48d940b8a83773badf867, type: 2}
-      - {fileID: 11400000, guid: 07427f7c532c54049b96f6bfe9a09e65, type: 2}
-      - {fileID: 11400000, guid: 2dd5564c64891a04881b56f447f01603, type: 2}
-      - {fileID: 11400000, guid: f6b34de7aae79954d8551ea5fe90fedc, type: 2}
-      - {fileID: 11400000, guid: 63bec78f3baf47e4eb40cbfa6703beb4, type: 2}
-      - {fileID: 11400000, guid: 0ae4062e6e24fae469dd9c34a42407e1, type: 2}
+      Items: []
     SoundSettings:
       Mixer: {fileID: 24100000, guid: 6073c46e496651d4484335f4d91fc61c, type: 2}
       SFXSourcePrefab: {fileID: 7531651237845782265, guid: 36b555ce632753044b933f4b2e09e9fa, type: 3}
@@ -352,15 +338,7 @@ MonoBehaviour:
       LooseVoice: {fileID: 8300000, guid: b21774f0dd46b964fb6186c908728417, type: 3}
       WinSound: {fileID: 8300000, guid: dc4fa3b4e75bbf24e8e51bc9f17ac22a, type: 3}
       LooseSound: {fileID: 8300000, guid: 6cc24d84ab29ccb42b10883a180916bc, type: 3}
-  BonusItems:
-  - Amount: 2
-    Item: {fileID: 11400000, guid: c306e67a2c8a5604197f03d4cdc9b674, type: 2}
-  - Amount: 2
-    Item: {fileID: 11400000, guid: f10da6c8fb6b1dd4a8cc38a39bde513a, type: 2}
-  - Amount: 2
-    Item: {fileID: 11400000, guid: b37a5206a85e15440865697e559cf2b3, type: 2}
-  - Amount: 2
-    Item: {fileID: 11400000, guid: 3d73d22e97a64db4e9bfee4dfe1df1f6, type: 2}
+  BonusItems: []
 --- !u!1 &5493004279429478352
 GameObject:
   m_ObjectHideFlags: 0
