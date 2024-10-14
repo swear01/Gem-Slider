@@ -118,7 +118,7 @@ namespace Match3
             var prev = Score;
 
 
-            Score += 200;
+            Score += 100;
             OnMoveHappened?.Invoke(Score);
 
             //if (prev > LowMoveTrigger && RemainingMove <= LowMoveTrigger)

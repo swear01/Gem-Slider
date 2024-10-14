@@ -21,8 +21,8 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="RIghtTopSection" class="topSection" style="justify-content: flex-start; height: auto;">
-                <ui:Label tabindex="-1" text="99" display-tooltip-when-elided="true" name="ScoreMonitor" />
-                <ui:Label tabindex="-1" text="Score" display-tooltip-when-elided="true" name="ScoreTitleLabel" class="topBarTitle" style="font-size: 100%;" />
+                <ui:Label tabindex="-1" text="99" display-tooltip-when-elided="true" name="ScoreMonitor" style="font-size: 200%; -unity-text-align: middle-right;" />
+                <ui:Label tabindex="-1" text="Score" display-tooltip-when-elided="true" name="ScoreTitleLabel" class="topBarTitle" style="font-size: 200%; -unity-text-align: upper-left;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="BottomBar" style="bottom: -20px; height: 10%; width: 100%; align-self: center; position: absolute; background-image: url(&quot;project://database/Assets/GemHunterMatch/Images/UI/Sprite_UI_BottomBar_BG.png?fileID=2800000&amp;guid=59e42bc163d2a4d10aab5d7236332064&amp;type=3#Sprite_UI_BottomBar_BG&quot;); align-items: center; justify-content: center;">

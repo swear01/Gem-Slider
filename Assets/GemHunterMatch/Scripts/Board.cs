@@ -74,7 +74,7 @@ namespace Match3
         private bool m_SwipeQueued;
         private Vector3Int m_StartSwipe;
         private Vector3Int m_EndSwipe;
-        private bool m_IsHoldingTouch;
+        //private bool m_IsHoldingTouch;
 
         private float m_LastClickTime = 0.0f;
 
@@ -1333,7 +1333,7 @@ namespace Match3
             }
             else if (releasedThisFrame)
             {
-                m_IsHoldingTouch = false;
+                //m_IsHoldingTouch = false;
                 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 if (UIHandler.Instance.DebugMenuOpen)

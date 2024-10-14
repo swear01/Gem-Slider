@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/GemHunterMatch/Scenes/Main.unity
     guid: b348bab4d0bcc4249974860e9b60da73
   - enabled: 1
+    path: Assets/GemHunterMatch/Scenes/TemplateLevel.unity
+    guid: 610a0812a952d8c44ab3fbb9945854d3
+  - enabled: 0
     path: Assets/GemHunterMatch/Scenes/Level1.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+    guid: e648e375d168547928b20d5697f03cfb
+  - enabled: 0
     path: Assets/GemHunterMatch/Scenes/Level2.unity
     guid: cef0a6256b6cc41a2b9c230466e59854
-  - enabled: 1
+  - enabled: 0
     path: Assets/GemHunterMatch/Scenes/Level3.unity
     guid: 6f8636eea4fd4465593f170e96739fcc
   m_configObjects: {}
