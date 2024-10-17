@@ -98,9 +98,9 @@ namespace Match3
         private Slider m_SFXVolumeSlider;
     
         // End Screen
-        private Label m_CoinLabel;
-        private Label m_LiveLabel;
-        private Label m_StarLabel;
+        //private Label m_CoinLabel;
+        //private Label m_LiveLabel;
+        //private Label m_StarLabel;
     
         // Shop
         //private VisualElement m_ShopRoot;
@@ -154,8 +154,8 @@ namespace Match3
 
             m_CharacterPortrait = m_Document.rootVisualElement.Q<VisualElement>("MiddleTopSection");
 
-            var playAgainButton = m_Document.rootVisualElement.Q<Button>("ReplayButton");
-            playAgainButton.clicked += () =>
+            var restartButton = m_Document.rootVisualElement.Q<Button>("RestartButton");
+            restartButton.clicked += () =>
             {
                 FadeOut(() =>
                 {
@@ -163,21 +163,21 @@ namespace Match3
                 });
             };
 
-            var exitButton = m_Document.rootVisualElement.Q<Button>("SelectLevelButton");
-            exitButton.clicked += () =>
+            var endRestartButton = m_Document.rootVisualElement.Q<Button>("EndRestartButton");
+            endRestartButton.clicked += () =>
             {
                 FadeOut(() =>
                 {
-                    SceneManager.LoadScene(1, LoadSceneMode.Single); 
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
                 });
             };
-            
+
             m_PortraitTarget = m_Document.rootVisualElement.Q<Image>("RenderTarget");
             m_PortraitTarget.scaleMode = ScaleMode.ScaleToFit;
             
-            m_CoinLabel = m_Document.rootVisualElement.Q<Label>("CoinLabel");
-            m_LiveLabel = m_Document.rootVisualElement.Q<Label>("LiveLabel");
-            m_StarLabel = m_Document.rootVisualElement.Q<Label>("StarLabel");
+            //m_CoinLabel = m_Document.rootVisualElement.Q<Label>("CoinLabel");
+            //m_LiveLabel = m_Document.rootVisualElement.Q<Label>("LiveLabel");
+            //m_StarLabel = m_Document.rootVisualElement.Q<Label>("StarLabel");
 
             m_BottomBarRoot = m_Document.rootVisualElement.Q<VisualElement>("BottomBar");
             var openSettingButton = m_BottomBarRoot.Q<Button>("ButtonMenu");
@@ -196,15 +196,15 @@ namespace Match3
             m_SettingMenuRoot = m_Document.rootVisualElement.Q<VisualElement>("Settings");
             m_SettingMenuRoot.style.display = DisplayStyle.None;
 
-            var returnButton = m_SettingMenuRoot.Q<Button>("ReturnButton");
-            returnButton.clicked += () =>
-            {
-                FadeOut(() =>
-                {
-                    ToggleSettingMenu(false);
-                    SceneManager.LoadScene(1, LoadSceneMode.Single); 
-                });
-            };
+            //var returnButton = m_SettingMenuRoot.Q<Button>("ReturnButton");
+            //returnButton.clicked += () =>
+            //{
+            //    FadeOut(() =>
+            //    {
+            //        ToggleSettingMenu(false);
+            //        SceneManager.LoadScene(1, LoadSceneMode.Single); 
+            //    });
+            //};
 
             var closeButton = m_SettingMenuRoot.Q<Button>("CloseButton");
             closeButton.clicked += () =>
@@ -413,7 +413,7 @@ namespace Match3
 
         public void ShowEnd()
         {
-            UpdateTopBarData();
+            //UpdateTopBarData();
             
             if (LevelData.Instance.GoalLeft == 0)
             {
@@ -457,7 +457,7 @@ namespace Match3
             
             GameManager.Instance.PlaySFX(clip);
             
-            UpdateTopBarData();
+            //UpdateTopBarData();
             m_EndScreen.style.display = DisplayStyle.Flex;
         }
 
@@ -616,12 +616,12 @@ namespace Match3
             }
         }
 
-        public void UpdateTopBarData()
-        {
-            m_CoinLabel.text = GameManager.Instance.Coins.ToString();
-            m_LiveLabel.text = GameManager.Instance.Lives.ToString();
-            m_StarLabel.text = GameManager.Instance.Stars.ToString();
-        }
+        //public void UpdateTopBarData()
+        //{
+        //    //m_CoinLabel.text = GameManager.Instance.Coins.ToString();
+        //    //m_LiveLabel.text = GameManager.Instance.Lives.ToString();
+        //    //m_StarLabel.text = GameManager.Instance.Stars.ToString();
+        //}
 
         //public void CreateBottomBar()
         //{
